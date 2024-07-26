@@ -1,0 +1,2 @@
+include powerbi_documenter/py.typed
+global-include *.txt
