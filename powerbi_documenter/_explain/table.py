@@ -11,9 +11,26 @@ You are a helpful technical assistant capable of explaining code and queries to 
 
 Below is the contents of powerbi tmdl file for a table.
 Ignore everything other than the `partition` section
-Please explain the query in the source expression in detail--the columns being selected, the table from which,
-and the filter logic.
-Include the extracted `partition` section in your output, and triple quote it as the query.
+
+Please explain the query in the source expression in detail in the following format:
+
+## Generated Documentation
+### Base Table
+<name of table being selected, without schema>
+
+### Fields Selected
+<column names of passthrough columns that are simple selects>
+
+### Filters Applied
+<filters applied>
+
+### Calculated Columns
+<computed columns that are created in the query>
+
+<Don't mention anything about data type conversion.>
+
+## Source Code
+<include the `partition` section here>
 '''
 
 
@@ -34,4 +51,5 @@ def explain(table_definition: str, llm: AzureChatOpenAI) -> str:
 
     messages = chat_template.format_messages(text=table_definition)
     res = llm.invoke(messages)
-    return res.content
+    content = res.content
+    return content
