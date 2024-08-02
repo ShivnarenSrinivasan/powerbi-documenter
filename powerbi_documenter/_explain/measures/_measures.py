@@ -4,13 +4,13 @@ from langchain_core.prompts import (
     HumanMessagePromptTemplate,
     SystemMessagePromptTemplate,
 )
-from langchain_openai import AzureChatOpenAI
+from langchain_core.language_models import chat_models
 
 
 _SYS_PROMPT = pathlib.Path(__file__).parent.joinpath('_prompts', 'measure1.md')
 
 
-def explain(definition: str, llm: AzureChatOpenAI) -> str:
+def explain(definition: str, llm: chat_models.BaseChatModel) -> str:
     human_prompt = '''
     text: {text}
     '''

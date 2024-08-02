@@ -3,7 +3,7 @@ from langchain_core.prompts import (
     HumanMessagePromptTemplate,
     SystemMessagePromptTemplate,
 )
-from langchain_openai import AzureChatOpenAI
+from langchain_core.language_models import chat_models
 
 
 _SYS_MESSAGE = '''
@@ -37,7 +37,7 @@ Example:
 '''
 
 
-def explain(table_definition: str, llm: AzureChatOpenAI) -> str:
+def explain(table_definition: str, llm: chat_models.BaseChatModel) -> str:
     human_prompt = '''
     text: {text}
     '''
