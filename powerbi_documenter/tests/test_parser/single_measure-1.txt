@@ -1,0 +1,10 @@
+    /// Asset Accumulated depreciation on investment support Amt Description
+	measure 'Asset Accumulated depreciation on investment support Amount' = ```
+			
+			// note
+			SUM(  'Asset Transaction'[Asset Accumulated depreciation on investment support Amt]  
+			)
+			```
+		formatString: #,##0.00
+		displayFolder: [ Measures ]
+		lineageTag: 8eea1da0-6c3d-41a8-9329-875636188060

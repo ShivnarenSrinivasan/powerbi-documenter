@@ -3,3 +3,4 @@ build/
 *.pyc
 .venv
 .env
+_llm

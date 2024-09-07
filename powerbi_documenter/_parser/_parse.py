@@ -14,7 +14,7 @@ def extract_body_field(row: str) -> tuple[str, str]:
 
 
 def extract_field_name(field: str, field_type: L['measure', 'column']) -> str:
-    mat = re.search(f"{field_type} (.+)? =", field)
+    mat = re.search(f"{field_type} ([^=.]+)?( =)?", field)
     assert mat is not None
-    removed_quotes = mat.group(1).replace("'", '')
+    removed_quotes = mat.group(1).replace("'", '').strip()
     return removed_quotes
